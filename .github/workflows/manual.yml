@@ -1,0 +1,25 @@
+name: CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to node_server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 97.74.86.93
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd souqMuscatBackend
+            git pull origin main
+            docker build -t souqmuscat .
+            docker stop souqMuscatBackend
+            docker rm souqMuscatBackend
+            docker run --restart unless-stopped --name souqMuscatBackend -d -v /home/deployer/souqMuscatBackend:/home/node/app -p 127.0.0.1:8085:3000 souqmuscat:latest
+            docker volume prune

@@ -1,0 +1,5 @@
+# Chart.yaml
+apiVersion: v2
+name: souq-app-chart
+description: A Helm chart for deploying the souq-app application
+version: 0.1.0

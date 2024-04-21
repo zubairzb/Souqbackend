@@ -1,0 +1,23 @@
+# .helmignore
+
+# Ignore editor backup files
+*~
+
+# Ignore hidden files
+.*
+
+# Ignore Helm chart packaging artifacts
+charts/
+.souq-app-chart-*.tgz
+.souq-app-chart-*.tgz.prov
+
+# Ignore version control system directories
+.git/
+.svn/
+
+# Ignore local configuration files
+*.swp
+.DS_Store
+
+# Ignore Helm chart specific files
+values.local.yaml

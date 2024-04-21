@@ -1,0 +1,15 @@
+# templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app: souq-app
+spec:
+  selector:
+    app: souq-app
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: 3000
+  type: {{ .Values.service.type }}

@@ -1,0 +1,11 @@
+# values.yaml
+image:
+  repository: zubairzb/souqapp
+  tag: '11.0'
+
+replicaCount: 2
+
+service:
+  name: souq-app
+  type: LoadBalancer
+  port: 80

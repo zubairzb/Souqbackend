@@ -1,0 +1,8 @@
+# templates/_helpers.tpl
+{{/*
+Expand the name of the chart to be a fully qualified chart name
+*/}}
+{{- define "souq-app-chart.fullname" -}}
+{{- printf "%s-%s" .Release.Name .Chart.Name -}}
+{{- end -}}
+
